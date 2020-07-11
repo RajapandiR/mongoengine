@@ -19,16 +19,20 @@ Including another URLconf
 # urlpatterns = [
 #     path('admin/', admin.site.urls),
 # ]
-
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 from django_mongoengine import mongo_admin
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='My ProjectAPI')
 
 from mongoapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('adminq/', mongo_admin.site.urls),
+    path('swagger/', schema_view),
     path('index/', views.index, name='index'),
     path('api/', include('mongoapp.urls')),
     # path('api/pro/', views.ProfileApiView.as_view()),

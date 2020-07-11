@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'rest_framework_mongoengine',
     'django_mongoengine',
     'django_mongoengine.mongo_admin',
+    'rest_framework_swagger',
     'mongoapp',
 
 ]
+
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -132,4 +135,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
