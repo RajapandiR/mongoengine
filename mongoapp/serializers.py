@@ -8,4 +8,4 @@ class ProfileSerializer(serializers.DocumentSerializer):
 	age = fields.IntegerField(required=False)
 	class Meta:
 		model = models.Profile
-		fields = '__all__'
+		fields = ['id', 'name', 'age']

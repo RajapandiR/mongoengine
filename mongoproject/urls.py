@@ -29,7 +29,8 @@ from mongoapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('adminq/', mongo_admin.site.urls),
+    path('index/', views.index, name='index'),
     path('api/', include('mongoapp.urls')),
-    path('api/pro/', views.ProfileApiView.as_view()),
+    # path('api/pro/', views.ProfileApiView.as_view()),
 ]
 
